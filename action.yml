@@ -1,0 +1,113 @@
+name: 'Image Update Action'
+description: 'Update the image tag of an application in an existing manifest YAML File'
+author: 'OpsVerse <connect@opsverse.io>'
+inputs:
+  valueFile:
+    required: false
+    description: 'YAML file which should be updated'
+  propertyPath:
+    required: false
+    description: 'Property Path - valid jsonPath expression'
+  value:
+    required: false
+    description: 'New property value'
+  noCompatMode:
+    required: false
+    description: 'Removes quotes from reserved words, like Y, N, yes, no, on, etc.'
+    default: 'false'
+  quotingType:
+    required: false
+    description: QuotingType for YAML conversion, possible values are ' and ". Defaults to single quotes
+    default: "'"
+  format:
+    required: false
+    description: 'Supported file formats, possible values are YAML and JSON, will be guessed by file extension if not provided. Falls back to YAML'
+  method:
+    required: false
+    description: 'Configures the processing of none existing properties. Possible values: CreateOrUpdate, Update, Create'
+  changes:
+    required: false
+    description: 'Map of changes for a single or multiple files as JSON. Supports following formats: { "filepath": {"propertyPath": "value"}} or {"propertyPath": "value"}. If filepath is not provided it falls back to the path configured under valueFile.'
+  branch:
+    required: false
+    description: 'Branch to commit the change, will be created if not exist'
+    default: 'master'
+  force:
+    required: false
+    description: 'Branch to commit the change, will be created if not exist'
+    default: 'false'
+  masterBranchName:
+    required: false
+    description: 'Branch name of your master'
+    default: 'master'
+  targetBranch:
+    required: false
+    description: 'Target Branch for the created PullRequest'
+    default: master
+  githubAPI:
+    required: false
+    description: 'GitHub BaseURL'
+    default: https://api.github.com
+  createPR:
+    required: false
+    description: 'Create a PullRequest to the configured target branch'
+    default: 'false'
+  commitChange:
+    required: false
+    description: 'Commit the change "branch" with the given "message"'
+    default: 'true'
+  updateFile:
+    required: false
+    description: 'Update the original File in your workflow'
+    default: 'false'
+  message:
+    required: false
+    description: 'Commit message for the value update'
+    default: ''
+  title:
+    required: false
+    description: 'Title of the created pull request'
+    default: ''
+  description:
+    required: false
+    description: 'Description of the created pull request'
+    default: ''
+  labels:
+    required: false
+    description: 'Comma separated list of custom PR labels, e.g. "feature,yaml-updates"'
+    default: 'yaml-updates'
+  token:
+    required: false
+    description: 'GitHub AuthToken for Authorization'
+    default: ${{ github.token }}
+  repository:
+    required: false
+    description: 'repository to update'
+    default: ${{ github.repository }}
+  workDir:
+    required: false
+    description: 'repository workspace location'
+    default: .
+  commitUserName:
+    description: Name used for the commit user
+    required: false
+    default: 'github-actions[bot]'
+  commitUserEmail:
+    description: Email address used for the commit user
+    required: false
+    default: '41898282+github-actions[bot]@users.noreply.github.com'
+  reviewers:
+    description: List of reviewers for the created Pull Request, if enabled
+    required: false
+    default: ''
+  teamReviewers:
+    description: List of team reviewers for the created Pull Request, if enabled
+    required: false
+    default: ''
+  assignees:
+    description: List of assignees for the created Pull Request, if enabled
+    required: false
+    default: ''
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
