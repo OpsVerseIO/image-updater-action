@@ -1,8 +1,16 @@
 {
-  "backend": { "version": "v1.2.0" },
-  "frontend": {},
+  "backend": {
+    "version": "v1.0.1"
+  },
+  "frontend": true,
   "containers": [
-    { "name": "nginx", "image": "nginx:latest" },
-    { "name": "node", "image": "node:latest" }
+    {
+      "name": "nginx",
+      "image": "nginx:latest"
+    },
+    {
+      "name": "node",
+      "image": "node:latest"
+    }
   ]
 }
