@@ -1,6 +1,10 @@
 name: 'Image Update Action'
 description: 'Update the image tag of an application in an existing manifest YAML File'
 author: 'OpsVerse <connect@opsverse.io>'
+branding:
+  icon: 'git-commit'
+  color: 'black'
+
 inputs:
   valueFile:
     required: false
