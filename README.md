@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Update values.yaml
-        uses: opsverse/image-updater-action@0.1.0
+        uses: OpsVerseIO/image-updater-action@0.1.0
         with:
           valueFile: 'file.yaml'
           propertyPath: 'file.version'
@@ -67,7 +67,7 @@ jobs:
           echo "::set-output name=version::$VERSION"
 
       - name: Update Image Version in the related HelmChart values.yaml
-        uses: opsverse/image-updater-action@0.1.0
+        uses: OpsVerseIO/image-updater-action@0.1.0
         with:
           valueFile: 'deployment/helm/values.yaml'
           propertyPath: 'backend.version'
@@ -154,7 +154,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: opsverse/image-updater-action@0.1.0
+      - uses: OpsVerseIO/image-updater-action@0.1.0
         with:
           valueFile: 'deployment/helm/values.yaml'
           branch: deployment/dev
@@ -178,7 +178,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: opsverse/image-updater-action@0.1.0
+      - uses: OpsVerseIO/image-updater-action@0.1.0
         with:
           valueFile: 'deployment/helm/values.yaml'
           branch: deployment/v1.0.1
@@ -237,7 +237,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }} 
 
       - name: Update Image Version in the related HelmChart values.yaml
-        uses: opsverse/image-updater-action@0.1.0
+        uses: OpsVerseIO/image-updater-action@0.1.0
         with:
           valueFile: 'deployment/helm/values.yaml'
           propertyPath: 'backend.version'
