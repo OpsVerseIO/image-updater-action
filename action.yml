@@ -1,4 +1,4 @@
-name: 'Image Update Action'
+name: 'image-updater-action'
 description: 'Update the image tag of an application in an existing manifest YAML File'
 author: 'OpsVerse <connect@opsverse.io>'
 branding:
